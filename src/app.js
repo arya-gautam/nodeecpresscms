@@ -318,7 +318,8 @@ try {
     }
 } 
 catch (error) {
-    res.status(400).send(error);
+    res.status(400).render("login",{set:req.body.email,message:"Invalid login details ",status:"error",title:"Oops..."});
+    //console.log(error);
 }
 });
 
