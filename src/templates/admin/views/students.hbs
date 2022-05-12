@@ -44,6 +44,8 @@
                          <div class="float-right d-inline">
                              <a href="/admin/register">
 <button type="button" class="btn btn-primary btn-sm mb-2"> <i class="fa fa-plus"></i> Add New</button></a>
+{{!-- <button type="button" data-toggle="modal" data-target="#registerModal" class="btn btn-primary btn-sm mb-2"> <i class="fa fa-plus"></i> Add New</button> --}}
+
                         </div>
                         </div>
 
@@ -74,11 +76,15 @@
                                                     <td>
                                                     <a href="/admin/students/{{_id}}" class="btn btn-info">
                                                     <i class="fas fa-edit"></i></a>
+
+
                                                     <a onclick="deleteData('{{_id}}')" class="btn btn-danger">
                                                       <i class="fas fa-trash"></i></a>
                                                     </td>
 
                                            </tr>
+
+                                           
                                                
                                           {{/each}}
                                     </tbody>
@@ -99,6 +105,8 @@
     <!-- End of Page Wrapper -->
 
   {{>fotterlink}}
+
+  
 
  {{#if message}}
 <script>
@@ -136,6 +144,131 @@ method: 'DELETE'
 })
 }
 </script>
+
+<script>
+  //edit data
+  const endpoint = `http://127.0.0.1:8000/api/students/6276495621391204d01a126b`;
+fetch(endpoint,{
+   method:'GET'
+ })
+.then((response) => response.json())
+.then((data) => {
+  //console.log(data.set.email);
+  //$("#email").html(data.set.email);
+})
+.catch(err => console.log(err));
+</script>
+
+
+
+ <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="register"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="register">Register Student</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+
+                      {{#if passIsmatch}}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Opps!</strong> {{passIsmatch}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    {{/if}}
+
+                 
+
+                 <form action="/admin/students" method="post">
+                <div class="modal-body">
+                            <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label for="firstname"><b>First Name</b></label>
+                                        <input type="text" name="firstname" value="{{set.firstname}}" class="form-control form-control-user"
+                                            placeholder="Enter First Name">
+                                    
+                                      {{#if error.errors.firstname.message}}<p class="text-danger">{{error.errors.firstname.message}}</p> {{/if}}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="lastname"><b>Last Name</b></label>
+                                        <input type="text" name="lastname" value="{{set.lastname}}" class="form-control form-control-user" 
+                                            placeholder="Enter Last Name">
+                                               {{#if error.errors.lastname.message}}<p class="text-danger">{{error.errors.lastname.message}}</p> {{/if}}
+                                    </div>
+                                </div>
+
+                                 <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label for="email"><b>Email</b></label>
+                                        <input type="text" name="email" value="{{set.email}}" class="form-control form-control-user" 
+                                            placeholder="Enter Email">
+                                               {{#if error.errors.email.message}}<p class="text-danger">{{error.errors.email.message}}</p> {{/if}}
+                                                {{#if error.keyPattern.email}}<p class="text-danger">This Email Already Exits.</p> {{/if}}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="phone"><b>Phone</b></label>
+                                        <input type="text" name="phone" value="{{set.phone}}" class="form-control form-control-user" 
+                                            placeholder="Enter Phone Number">
+                                               {{#if error.errors.phone.message}}<p class="text-danger">{{error.errors.phone.message}}</p> {{/if}}
+                                                 {{#if error.keyPattern.phone}}<p class="text-danger">This Phone Already Exits.</p> {{/if}}
+                                    </div>
+                                </div>
+
+                                   <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label for="password"><b>Password</b></label>
+                                       <input type="password" name="password" value="{{set.password}}" class="form-control form-control-user"
+                                                placeholder="Enter Password">
+                                                  {{#if error.errors.password.message}}<p class="text-danger">{{error.errors.password.message}}</p> {{/if}}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="confirmpassword"><b>Confirm Password</b></label>
+                                       <input type="password" name="confirmpassword" value="{{set.confirmpassword}}" class="form-control form-control-user"
+                                                placeholder="Enter Confirm Password">
+                                                  {{#if error.errors.confirmpassword.message}}<p class="text-danger">{{error.errors.confirmpassword.message}}</p> {{/if}}
+                                    </div>
+                                </div>
+
+                                   <div class="form-group row">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
+                                        <label for="address"><b>Address</b></label>
+                                       <input type="text" name="address" value="{{set.address}}" class="form-control form-control-user"
+                                                 placeholder="Enter Address">
+                                {{#if error.errors.address.message}}<p class="text-danger">{{error.errors.address.message}}</p> {{/if}}
+                                    </div>
+                                  
+                                </div>
+                                
+                              
+                                   
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    
+                                    <div class="form-group text-center">
+                                    <input type="submit" name="submit" value="Add" class="btn btn-primary m-b-0"  />
+                                    </div>
+                                    
+                </div>
+                 </form>
+            </div>
+        </div>
+    </div>
+
+  {{!-- {{#if passIsmatch}}
+    <script>
+      $('#registerModal').modal('show');
+    </script>
+
+         {{else if error.errors}}
+    <script>
+      $('#registerModal').modal('show');
+    </script>
+      {{/if}} --}}
 
 </body>
 

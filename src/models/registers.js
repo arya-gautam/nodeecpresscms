@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const  validator = require("validator");
+const bcrypt = require("bcryptjs");
 /* Student registration validation shema */
 const studentSchema = new mongoose.Schema({
     firstname :{
@@ -32,13 +33,27 @@ const studentSchema = new mongoose.Schema({
     phone:{
         type:Number,
         required:[true,"The Phone Is Required."],
-        unique:true
+        unique:true,
+        // validate(value){
+        //     if(!validator.isMobilePhone(value)){
+        //         throw new Error("Invalid Phone");
+        //     }
+        // }
     },
     address:{
         type:String,
         required:[true,"The Address Is Required."],
     }
 })
+
+studentSchema.pre("save",async function(next){
+if(this.isModified("password")){
+    this.password = await bcrypt.hash(this.password,10);
+    this.confirmpassword = await bcrypt.hash(this.password,10);
+}
+    next();
+})
+    
 
 
 /* Create Collection  and modeule export*/

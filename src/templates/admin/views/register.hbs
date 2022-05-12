@@ -89,7 +89,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="phone"><b>Phone</b></label>
-                                        <input type="text" name="phone" value="{{set.phone}}" class="form-control form-control-user" 
+                                        <input type="number" name="phone" value="{{set.phone}}" class="form-control form-control-user" 
                                             placeholder="Enter Phone Number">
                                                {{#if error.errors.phone.message}}<p class="text-danger">{{error.errors.phone.message}}</p> {{/if}}
                                                  {{#if error.keyPattern.phone}}<p class="text-danger">This Phone Already Exits.</p> {{/if}}

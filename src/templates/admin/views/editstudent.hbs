@@ -41,10 +41,11 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 mt-2 font-weight-bold text-primary">Edit Registred Student</h6>
-                             <a href="/admin/students">
-<button type="button" class="btn btn-primary btn-sm mb-2"><i class="far fa-arrow-alt-circle-left"></i> Back</button></a>
- </div>
-                          <div class="float-center d-inline">
+                             <div class="float-right d-inline">
+                            <a href="/admin/students">
+                            <button type="button" class="btn btn-primary btn-sm mb-2"><i class="far fa-arrow-alt-circle-left"></i> Back</button></a>
+                            </div>
+                             <div class="float-center d-inline">
                            {{#if passIsmatch}}
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>Opps!</strong> {{passIsmatch}}
@@ -53,6 +54,7 @@
                     </button>
                     </div>
                     {{/if}}
+                    
                         </div>
                         </div>
 
