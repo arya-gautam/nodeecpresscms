@@ -13,10 +13,10 @@ require('dotenv').config()
 
 /*Start Email Send */
 let transporter = nodemailer.createTransport({
-    service: 'outlook',
+    service: 'mail',
     auth: {
-      user: 'php.marketing@mrgworld.com',
-      pass: 'Gautam@2021'
+      user: 'developer@tutorialworlds.com',
+      pass: '96089@Developer'
     },
     tls:{
         rejectUnauthorized:false,
