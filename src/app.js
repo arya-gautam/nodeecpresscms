@@ -12,18 +12,29 @@ require('dotenv').config()
 
 
 /*Start Email Send */
-let transporter = nodemailer.createTransport({
-    service: 'mail',
+// let transporter = nodemailer.createTransport({
+//     service: 'mail',
+//     auth: {
+//       user: 'developer@tutorialworlds.com',
+//       pass: '96089@Developer'
+//     },
+//     tls:{
+//         rejectUnauthorized:false,
+//     }
+//   });
+
+  let transporter = nodemailer.createTransport({
+    host: "mail.tutorialworlds.com",
+    port: 465,
+    secure: true,
     auth: {
-      user: 'developer@tutorialworlds.com',
-      pass: '96089@Developer'
+        user: 'developer@tutorialworlds.com',
+        pass: '96089@Developer'
     },
-    tls:{
-        rejectUnauthorized:false,
-    }
+    tls: {
+      rejectUnauthorized: false,
+    },
   });
-  
-  
 
 
 /* servre side form validation */
@@ -208,7 +219,7 @@ app.post("/createaccount",async(req,res)=>{
             const AdminEmailVerifyToken = `${process.env.APP_URL}/admin/verify?token=${token}`;
 
             let mailOptions = {
-                from: 'php.marketing@mrgworld.com',
+                from: 'developer@tutorialworlds.com',
                 to: req.body.email,
                 subject: 'Account Verification',
                 html: "<div style='font-family:HelveticaNeue-Light,Arial,sans-serif;background-color:#eeeeee'><table align='center' width='100%' border='0' cellspacing='0' cellpadding='0' bgcolor='#eeeeee'><tbody><tr><td><table align='center' width='750px' border='0' cellspacing='0' cellpadding='0' bgcolor='#eeeeee' style='width:750px!important'><tbody><tr><td><table width='690' align='center' border='0' cellspacing='0' cellpadding='0' bgcolor='#eeeeee'><tbody><tr><td colspan='3' height='80' align='center' border='0' cellspacing='0' cellpadding='0' bgcolor='#eeeeee' style='padding:0;margin:0;font-size:0;line-height:0'><table width='690' align='center' border='0' cellspacing='0' cellpadding='0'><tbody><tr><td width='30'></td><td align='center' valign='middle' style='padding:0;margin:0;font-size:0;line-height:0'><a href='https://cmsnodeapp.herokuapp.com/' target='_blank'><img src='#'></a></td><td width='30'></td></tr></tbody></table></td></tr><tr><td colspan='3' align='center'><table width='630' align='center' border='0' cellspacing='0' cellpadding='0'><tbody><tr><td colspan='3' height='60'></td></tr><tr><td width='25'></td><td align='center'><h1 style='font-family:HelveticaNeue-Light,arial,sans-serif;font-size:45px;color:#404040;line-height:48px;font-weight:bold;margin:0;padding:0'>Welcome To<br> CMS</h1></td><td width='25'></td></tr><tr><td colspan='3' height='40'></td></tr><tr><td colspan='5' align='center'><p style='color:#404040;font-size:16px;line-height:24px;font-weight:lighter;padding:0;margin:0'>Congratulations!! You have successfully registered for our website. To login in your account you need to verify your e-mail first.</p><br><p style='color:#404040;font-size:16px;line-height:22px;font-weight:lighter;padding:0;margin:0'> To verift your e-mail address, kindly click on the button below.</p></td></tr><tr><td colspan='4'><div style='width:100%;text-align:center;margin:30px 0'><table align='center' cellpadding='0' cellspacing='0' style='font-family:HelveticaNeue-Light,Arial,sans-serif;margin:0 auto;padding:0'><tbody><tr><td align='center' style='margin:0;text-align:center'><a href='" + AdminEmailVerifyToken + "' style='font-size:21px;line-height:22px;text-decoration:none;color:#ffffff;font-weight:bold;border-radius:2px;background-color:#0096d3;padding:14px 40px;display:block;letter-spacing:1.2px' target='_blank'>Verify User!</a></td></tr></tbody></table></div></td></tr><tr><td colspan='3' height='30'></td></tr></tbody></table></td></tr><table align='center' width='750px' border='0' cellspacing='0' cellpadding='0' bgcolor='#eeeeee' style='width:750px!important'><tbody><tr><td><table width='630' align='center' border='0' cellspacing='0' cellpadding='0' bgcolor='#eeeeee'><tbody><tr><td colspan='2' height='30'></td></tr><tr><td width='360' valign='top'><div style='color:#a3a3a3;font-size:12px;line-height:12px;padding:0;margin:0'>&copy; CMS.</div><div style='line-height:5px;padding:0;margin:0'>&nbsp;</div><div style='color:#a3a3a3;font-size:12px;line-height:12px;padding:0;margin:0'>Developed By Gautam Arya</div></td><td align='right' valign='top'><span style='line-height:20px;font-size:10px'><a href='#' target='_blank'><img src='http://i.imgbox.com/BggPYqAh.png' alt='fb'></a>&nbsp;</span><span style='line-height:20px;font-size:10px'><a href='#' target='_blank'><img src='http://i.imgbox.com/j3NsGLak.png' alt='twit'></a>&nbsp;</span><span style='line-height:20px;font-size:10px'><a href='#' target='_blank'><img src='http://i.imgbox.com/wFyxXQyf.png' alt='g'></a>&nbsp;</span></td></tr><tr><td colspan='2' height='5'></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></div>",
