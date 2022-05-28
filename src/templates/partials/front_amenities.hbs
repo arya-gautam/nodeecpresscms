@@ -1,0 +1,19 @@
+{{#if amenities}}
+<section id="amenities" class="pys-5">
+    <div class="container">
+        <h2 class="text-center h1 fw-bold  mt-3">Amenities</h2>
+        <div class="row g-0">
+            {{#each amenities}}
+            <div class="col-md-3">
+                <div class="box-icons">
+                    <img src="/uploads/amenities/{{image}}" class="img-fluid mx-auto d-block w-25 py-3">
+                    <p class="text-center p-2 text-dark">
+                        {{heading}}
+                    </p>
+                </div>
+            </div>
+          {{/each}}
+        </div>
+    </div>
+</section>
+{{/if}}

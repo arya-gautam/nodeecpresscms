@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Admin  - Add Top Slider Heading</title>
+     {{>back_headerlink}}
+    
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+      {{>back_sidebar}}
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+              {{>back_navbar}}
+
+
+
+                  <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    {{!-- <h1 class="h3 mb-2 text-gray-800">Students</h1> --}}
+                    
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 mt-2 font-weight-bold text-primary"> Top Slider <i class="fas fa-angle-double-right"></i> Edit Image </h6>
+                         <div class="float-right d-inline">
+                             <a href="/admin/topSliderImages">
+<button type="button" class="btn btn-primary btn-sm mb-2"> <i class="far fa-arrow-alt-circle-left"></i> Back</button></a>
+
+
+                        </div>
+                        </div>
+
+                        <div class="card-body">
+                       <form action="/admin/topSliderImages/{{set._id}}" method="post" enctype="multipart/form-data">
+                            <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label for="pagename"><b>Select Page Name</b><span class="text-danger">*</span></label>
+                                       
+                                         <select class="form-control" required name="page_name">
+                                            <option selected="selected" disabled="disabled" value="">[Choose One]</option>
+                                            {{#each categories}}
+                                             <option value="{{_id}}"  {{#ifeq _id id}} selected {{/ifeq}}>{{page_name}}</option>
+                                            {{/each}}
+                                            </select>
+                                    
+                                      {{#if error.errors.page_name.message}} <span class="text-danger">{{error.errors.page_name.message}}</span>{{/if}}
+                                       {{#if error.keyPattern.page_name}} <span class="text-danger">This Page Name Already Exits.</span> {{/if}}
+                                    </div>
+                                    <div class="col-sm-6">
+                                         <label for="page_title"><b>Title </b><span class="text-danger">*</span></label>
+                                        <input type="text" name="page_title" value="Top Slider Images" class="form-control form-control-user"
+                                            placeholder="Enter Page Title" readonly>
+            
+
+                
+                                    </div>
+                                </div>
+
+                                 <div class="row">
+
+                    <div class="col-sm-6">
+                  <div class="form-group">
+                    <label><b>Image <span class="text-danger">*</span></b></label>
+                      <input name="image" type="file"  class="form-control" />
+                  </div>
+                </div>
+
+                  {{#if set.image}}
+                     <div class="col-sm-6">
+                  <div class="form-group">
+                    <label><b>Uploded Image :</b></label>
+                   <p><img src="/uploads/topsliderimages/{{set.image}}" width="200" height="100" ></p>
+                      <input name="old_image" type="hidden" value="{{set.image}}" class="form-control" />
+                  </div>
+                </div>
+                     {{/if}}
+
+              </div>
+            
+                                
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                    <div class="form-group text-center">
+                                    <input type="submit" name="submit" value="Update" class="btn btn-primary m-b-0"  />
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </form>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+         {{>back_footer}}
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+  {{>back_fotterlink}}
+</body>
+</html>

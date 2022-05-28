@@ -10,7 +10,7 @@ try {
     //console.log(adminData);
     req.token = token;
     req.adminData = adminData;
-    console.log(token);
+   // console.log(token);
    next();
 } catch (error) {
      res.status(401).render("login",{message:"Please Login First !!!",status:"error",title:"Opps..."});
@@ -18,4 +18,21 @@ try {
 }
 }
 
+const adminauth_API = async(req,res,next)=>{
+     try {
+         const  token = req.cookies.jwt;
+        const verifyToken = jwt.verify(token,process.env.SECRET_KEY);
+         const adminData = await adminRegister.findOne({_id:verifyToken._id});
+         //console.log(adminData);
+         req.token = token;
+         req.adminData = adminData;
+        // console.log(token);
+        next();
+     } catch (error) {
+          //res.status(401).render("login",{message:"Please Login First !!!",status:"error",title:"Opps..."});
+          res.status(401).send({error:error,message:"Please Login First !!!"});
+     }
+     }
+
 module.exports = adminauth;
+module.exports = adminauth_API;

@@ -1,0 +1,40 @@
+  {{#if topsliderimages}}
+<section class="hero-section gray-bg">
+    <div class="bg-wrap">
+        <div class="half-hero-bg-media full-height">
+             <div class="slider-progress-bar"></div>
+                <div class="slideshow-container" >
+                    {{#each topsliderimages}}
+                    <div class="slideshow-item">
+                        <div class="bg"><img src="/uploads/topsliderimages/{{image}}"></div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-title hero-title_small  mt-3">
+                <h2>{{topsliderheading.heading}}</h2>
+                <ul class="text-white bulets">
+                    <li><img src="/front/images/icons/bullet.png" alt="bullet" class="img-fluids"> RERA No: {{topsliderheading.rera_number}}</li>
+                    <li><img src="/front/images/icons/bullet.png" alt="bullet" class="img-fluids"> Land Area: {{topsliderheading.land_area}}</li>
+                    <li><img src="/front/images/icons/bullet.png" alt="bullet" class="img-fluids"> Total Towers: {{topsliderheading.total_towers}}</li>
+                    <li><img src="/front/images/icons/bullet.png" alt="bullet" class="img-fluids"> Total Floors: {{topsliderheading.total_floors}}</li>
+                    <li><img src="/front/images/icons/bullet.png" alt="bullet" class="img-fluids"> Total Units: {{topsliderheading.total_units}}</li>
+                    <li><img src="/front/images/icons/bullet.png" alt="bullet" class="img-fluids"> Configuration: {{topsliderheading.configuration}}</li>
+                    <li><img src="/front/images/icons/bullet.png" alt="bullet" class="img-fluids"> Size Range: {{topsliderheading.size_range}}</li>
+                    <li><img src="/front/images/icons/bullet.png" alt="bullet" class="img-fluids"> Status: {{topsliderheading.status}}</li>
+                    <li><img src="/front/images/icons/bullet.png" alt="bullet" class="img-fluids"> Starting Price: {{topsliderheading.starting_price}}</li>
+                </ul>
+            </div>
+
+            <div class="bottom-arrow">  
+                <!-- <i class="fa fa-angle-double-down" style="font-size:36px"></i> -->
+                <a href="#overview" class="scrol">SCROLL DOWN<br>
+                <i class="fa fa-arrow-down downarrow" style="border-radius: 50px;padding: 0px 2px;" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+
+</section>
+{{/if}}

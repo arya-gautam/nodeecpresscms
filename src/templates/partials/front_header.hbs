@@ -1,0 +1,78 @@
+<header class="main-header">
+    <!--  logo  -->
+    <div class="logo-holder"><a href="/"><img src="/front/images/logo.svg" alt=""></a></div>
+    <!-- logo end  -->
+    <!-- nav-button-wrap--> 
+    <div class="nav-button-wrap color-bg nvminit">
+        <div class="nav-button">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+    <!-- nav-button-wrap end--> 
+   
+    <!--  add new  btn -->
+    <div class="add-list_wrap">
+       <a href="tel:+91-8368874712" id="" class="add-list color-bg"><span>8368874712</span></a>
+    </div>
+    <!--  add new  btn end -->
+  
+    <!--  navigation --> 
+    <div class="nav-holder main-menu">
+        <nav>
+            <ul class="no-list-style">
+
+                {{#each categories}}
+                 <li>
+                    <a href="/{{page_url}}" class="act-link">{{page_name}} </a>
+                </li>
+                {{/each}}
+
+                 <li>
+                    <a href="/admin/login" class="act-link">Login </a>
+                </li>
+
+                 <li>
+                    <a href="/createaccount" class="act-link">Registration </a>
+                </li>
+        
+                <li>
+                    <a href="#overview" class="act-link">Overview </a>
+                </li>
+               
+                
+                <li>
+                    <a href="#amenities">Amenities</a>
+                </li>
+
+                <li>
+                    <a href="#fplan">Floor Plans</a>
+                </li>
+                <li>
+                     <a href="#pricelist">Price List</a>
+                </li>
+
+                <li>
+                    <a href="#gallery">Photo Gallerry</a>
+                </li>
+
+                <li>
+                    <a href="#maps">Location Map</a>
+                </li>
+
+                <li>
+                    <a href="#sitemap">Site Plan</a>
+                </li>
+               
+                
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#myModal05" class="show-reg-form modal-open">Brochure<img src="/front/images/gifs.gif" class="img-fluid" alt="gif"></a>
+                </li>
+               
+            </ul>
+        </nav>
+    </div>
+    <!-- navigation  end -->
+  
+</header>
+
+<!-- header end  -->

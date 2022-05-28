@@ -1,0 +1,31 @@
+ {{#if pricelists}}
+<section class="pys-5" id="pricelist">
+    <div class="container">
+        <h2 class="text-center mt-3 h1 fw-bold">Price List</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr class="bg-warnings">
+                            <th scope="col"><b class="text-white">Typology</b></th>
+                            <th scope="col"><b class="text-white">Carpet Area</b></th>
+                            <th scope="col"><b class="text-white">Starting Price</b></th>
+                            <th scope="col"><b class="text-white">Get Quote</b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each pricelists}}
+                        <tr>
+                            <td>{{typology}}</td>
+                            <td>{{carpet_area}}</td>
+                            <td>{{starting_price}}</td>
+                            <td><button type="button" class="btn btn-dark modal-open" data-toggle="modal" data-target="#myModal05">Price Breakup</button></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+{{/if}}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Admin  -Add Categories</title>
+     {{>back_headerlink}}
+    
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+      {{>back_sidebar}}
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+              {{>back_navbar}}
+
+
+
+                  <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    {{!-- <h1 class="h3 mb-2 text-gray-800">Students</h1> --}}
+                    
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 mt-2 font-weight-bold text-primary">Categories</h6>
+                         <div class="float-right d-inline">
+                             <a href="/admin/categories">
+<button type="button" class="btn btn-primary btn-sm mb-2"> <i class="far fa-arrow-alt-circle-left"></i> Back</button></a>
+
+
+                        </div>
+                        </div>
+
+                        <div class="card-body">
+                       <form action="/admin/categories" method="post">
+                            <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label for="pagename"><b>Page Name</b><span class="text-danger">*</span></label>
+                                        <input type="text" name="page_name" value="{{set.page_name}}" class="form-control form-control-user {{#if error.errors.page_name.message}} is-invalid {{/if}}"
+                                            placeholder="Enter Page Name">
+                                      {{#if error.errors.page_name.message}}<p class="text-danger">{{error.errors.page_name.message}}</p> {{/if}}
+                                       {{#if error.keyPattern.page_name}}<p class="text-danger">This Page Name Already Exits.</p> {{/if}}
+                                    </div>
+                                    <div class="col-sm-6">
+                                         <label for="page_title"><b>Page Title</b><span class="text-danger">*</span></label>
+                                        <input type="text" name="page_title" value="{{set.page_title}}" class="form-control form-control-user {{#if error.errors.page_title.message}} is-invalid {{/if}}"
+                                            placeholder="Enter Page Title">
+            
+                                      {{#if error.errors.page_title.message}}<p class="text-danger">{{error.errors.page_title.message}}</p> {{/if}}
+                
+                                    </div>
+                                </div>
+
+                                 <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label for="page_url"><b>Page URL</b><span class="text-danger">*</span></label>
+                                        <input type="text" name="page_url" value="{{set.page_url}}" class="form-control form-control-user {{#if error.errors.page_url.message}} is-invalid {{/if}}" 
+                                            placeholder="Enter Page Url">
+                                               {{#if error.errors.page_url.message}}<p class="text-danger">{{error.errors.page_url.message}}</p> {{/if}}
+                                                {{#if error.keyPattern.page_url}}<p class="text-danger">This Page Url Already Exits.</p> {{/if}}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="phone"><b>Meta Keyword</b> <span class="text-danger">*</span></label>
+                                        <input type="text" name="meta_keywords" value="{{set.meta_keywords}}" class="form-control form-control-user {{#if error.errors.meta_keywords.message}} is-invalid {{/if}}" 
+                                            placeholder="Enter meta keywords">
+                                               {{#if error.errors.meta_keywords.message}}<p class="text-danger">{{error.errors.meta_keywords.message}}</p> {{/if}}
+                        
+                                    </div>
+                                </div>
+
+                                   <div class="form-group row">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
+                                        <label for="password"><b>Meta Description</b> <span class="text-danger">*</span></label>
+                                       <input type="text" name="meta_description" value="{{set.meta_description}}" class="form-control form-control-user {{#if error.errors.meta_description.message}} is-invalid {{/if}}"
+                                                placeholder="Enter Meta Description">
+                                                  {{#if error.errors.meta_description.message}}<p class="text-danger">{{error.errors.meta_description.message}}</p> {{/if}}
+                                    </div>
+                                 
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                    <div class="form-group text-center">
+                                    <input type="submit" name="submit" value="Add" class="btn btn-primary m-b-0"  />
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </form>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+         {{>back_footer}}
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+  {{>back_fotterlink}}
+
+  
+
+ {{#if message}}
+<script>
+  Swal.fire({
+  position: 'center',
+  icon: '{{status}}',
+  title: '{{title}}',
+  text: "{{message}}",
+  showConfirmButton: true,
+  timer: 1000
+})
+</script>
+{{/if}} 
+
+</body>
+
+</html>

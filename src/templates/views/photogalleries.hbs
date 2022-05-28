@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Admin  - Photogallery</title>
+     {{>back_headerlink}}
+    
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+      {{>back_sidebar}}
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+              {{>back_navbar}}
+
+
+
+                  <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    {{!-- <h1 class="h3 mb-2 text-gray-800">Students</h1> --}}
+                    
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 mt-2 font-weight-bold text-primary"> Photogallery </h6>
+                         <div class="float-right d-inline">
+                             <a href="/admin/addPhotogallery">
+<button type="button" class="btn btn-primary btn-sm mb-2"> <i class="fa fa-plus"></i> Add New</button></a>
+
+                        </div>
+                        </div>
+                        <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Sl No.</th>
+                      <th>Page Name & Section</th>
+                      <th>Images</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+            
+                  <tbody>
+                     {{#each result}}   
+
+                    <tr>
+                      <td> {{sl @index}}</td>
+                       <td>{{#each page_name}}{{page_name}}{{/each}} <i class="fas fa-angle-double-right"></i> {{page_section}}</td>
+                        <td><img src="/uploads/photogalleries/{{image}}" width="200" height="100" ></td>
+                        <td>
+                        <a href="/admin/editPhotogallery/{{_id}}" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                        <a onclick="deleteData('{{_id}}')" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                       </td>
+                     </tr>
+                    {{/each}}
+
+                  </tbody>
+                </table>
+                         </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+         {{>back_footer}}
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+  {{>back_fotterlink}}
+
+  {{#if message}}
+<script>
+  Swal.fire({
+  position: 'center',
+  icon: '{{status}}',
+  title: '{{title}}',
+  text: "{{message}}",
+  showConfirmButton: true,
+  timer: 1000
+})
+</script>
+{{/if}}
+
+<script>
+function deleteData(id)
+{ 
+Swal.fire({
+title: 'Are you sure?',
+text: "You won't be able to revert this!",
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#3085d6',
+cancelButtonColor: '#d33',
+confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+if (result.isConfirmed) {
+const endpoint = `/admin/photogalleries/${id}`;
+fetch(endpoint,{
+method: 'DELETE'
+})
+.then((response) => response.json())
+.then((data) => window.location.href = data.redirect)
+.catch(err => console.log(err));
+}
+})
+}
+</script>
+
+</body>
+
+</html>

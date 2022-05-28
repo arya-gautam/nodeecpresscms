@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Admin  - Add Top Slider Heading</title>
+     {{>back_headerlink}}
+    
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+      {{>back_sidebar}}
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+              {{>back_navbar}}
+
+
+
+                  <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    {{!-- <h1 class="h3 mb-2 text-gray-800">Students</h1> --}}
+                    
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 mt-2 font-weight-bold text-primary"> Top Slider <i class="fas fa-angle-double-right"></i>Add Top Slider Heading</h6>
+                         <div class="float-right d-inline">
+                             <a href="/admin/topSliderHeadings">
+<button type="button" class="btn btn-primary btn-sm mb-2"> <i class="far fa-arrow-alt-circle-left"></i> {{page_name_id}} Back</button></a>
+
+
+                        </div>
+                        </div>
+                      
+                      
+
+                        <div class="card-body">
+                       <form action="/admin/topSliderHeadings/{{set._id}}" method="post">
+                            <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label for="pagename"><b>Select Page Name</b><span class="text-danger">*</span></label>
+                                       
+                                         <select class="form-control" name="page_name">
+                                            <option selected="selected" disabled="disabled" value="">[Choose One]</option>
+                                            {{#each categories}}
+                                            <option value="{{_id}}"  {{#ifeq _id id}} selected {{/ifeq}}>{{page_name}}</option>
+                                            {{/each}}
+                                            </select>
+                                    
+                                      {{#if error.errors.page_name.message}} <span class="text-danger">{{error.errors.page_name.message}}</span>{{/if}}
+                                       {{#if error.keyPattern.page_name}} <span class="text-danger">This Page Name Already Exits.</span> {{/if}}
+                                    </div>
+                                    <div class="col-sm-6">
+                                         <label for="page_title"><b>Top Slider Heading</b><span class="text-danger">*</span></label>
+                                        <input type="text" name="page_title" value="Top Slider Heading" class="form-control form-control-user"
+                                            placeholder="Enter Page Title" readonly>
+            
+        
+                
+                                    </div>
+                                </div>
+
+                                 <div class="row">
+
+                    <div class="col-sm-6">
+                  <div class="form-group">
+                    <label><b>Heading <span class="text-danger">*</span></b></label>
+                      <input name="heading" type="text"  placeholder="Enter Heading" value="{{set.heading}}" class="form-control   {{#if error.errors.heading.message}} is-invalid {{/if}}" />
+                     
+                     {{#if error.errors.heading.message}}
+                    <span class="text-danger">{{error.errors.heading.message}}</span>
+                     {{/if}}
+                  </div>
+                </div>
+
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label><b>Rera Number <span class="text-danger">*</span></b></label>
+                      <input name="rera_number" type="text"  placeholder="Enter Rera Number" value="{{set.rera_number}}" class="form-control   {{#if error.errors.rera_number.message}} is-invalid {{/if}}" />
+                     {{#if error.errors.rera_number.message}}
+                    <span class="text-danger">{{error.errors.rera_number.message}}</span>
+                     {{/if}}
+                  </div>
+                </div>
+
+              </div>
+
+               <div class="row">
+               <div class="col-sm-6">
+                  <div class="form-group">
+                    <label><b>land Area<span class="text-danger">*</span></b></label>
+                      <input name="land_area" type="text"  placeholder="Enter Land Area" value="{{ set.land_area }}" class="form-control   {{#if error.errors.land_area.message}} is-invalid {{/if}}" />
+                      {{#if error.errors.land_area.message}}
+                    <span class="text-danger"> {{error.errors.land_area.message}}</span>
+                  {{/if}}
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label><b>Total Towers <span class="text-danger">*</span></b></label>
+                      <input name="total_towers" type="text"  placeholder="Enter Total Towers" value="{{set.total_towers}}" class="form-control   {{#if error.errors.total_towers.message}} is-invalid {{/if}}" />
+                      {{#if error.errors.total_towers.message}}
+                    <span class="text-danger"> {{error.errors.total_towers.message}}</span>
+                    {{/if}}
+                  </div>
+                </div>
+              </div>
+
+
+                 <div class="row">
+
+                       <div class="col-sm-6">
+                  <div class="form-group">
+                    <label><b>Total Floors<span class="text-danger">*</span></b></label>
+                      <input name="total_floors" type="text"  placeholder="Enter Total Floors" value="{{set.total_floors}}"  class="form-control    {{#if error.errors.total_floors.message}} is-invalid {{/if}}" />
+                      {{#if error.errors.total_floors.message}}
+                    <span class="text-danger"> {{error.errors.total_floors.message}}</span>
+                   {{/if}}
+                  </div>
+                </div>
+
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label><b>Total Units <span class="text-danger">*</span></b></label>
+                      <input name="total_units" type="text"  placeholder="Enter Total Units" value="{{set.total_units}}" class="form-control  {{#if error.errors.total_units.message}} is-invalid {{/if}}" />
+                      {{#if error.errors.total_units.message}}
+                    <span class="text-danger">{{error.errors.total_units.message}}</span>
+                     {{/if}}
+                  </div>
+                </div>
+
+            
+              </div>
+
+                 <div class="row">
+
+                     <div class="col-sm-6">
+                  <div class="form-group">
+                    <label><b>Configuration <span class="text-danger">*</span></b></label>
+                      <input name="configuration" type="text"  placeholder="Enter Configuration"  value="{{set.configuration}}" class="form-control   {{#if error.errors.configuration.message}} is-invalid {{/if}}" />
+                    {{#if error.errors.configuration.message}}
+                    <span class="text-danger"> {{error.errors.configuration.message}}</span>
+                   {{/if}}
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label><b>Size Range <span class="text-danger">*</span></b></label>
+                      <input name="size_range" type="text"  placeholder="Enter Size Range" value="{{set.size_range}}" class="form-control   {{#if error.errors.size_range.message}} is-invalid {{/if}}"/>
+                     {{#if error.errors.size_range.message}}
+                    <span class="text-danger"> {{error.errors.size_range.message}}</span>
+                    {{/if}}
+                  </div>
+                </div>
+
+             
+              </div>
+
+
+
+               <div class="row">
+                  <div class="col-sm-6">
+                  <div class="form-group">
+                    <label><b>Status <span class="text-danger">*</span></b></label>
+                      <input name="status" type="text"  placeholder="Enter Status" value="{{ set.status }}"  class="form-control  {{#if error.errors.status.message}} is-invalid {{/if}}" />
+                      {{#if error.errors.status.message}}
+                    <span class="text-danger">{{error.errors.status.message}}</span>
+                   {{/if}}
+                  </div>
+                </div>
+
+
+               <div class="col-sm-6">
+                  <div class="form-group">
+                    <label><b>Starting Price<span class="text-danger">*</span></b></label>
+                      <input name="starting_price" type="text"  placeholder="Enter Starting Price" value="{{ set.starting_price }}"  class="form-control     {{#if error.errors.starting_price.message}} is-invalid {{/if}}" />
+                     {{#if error.errors.starting_price.message}}
+                    <span class="text-danger">   {{error.errors.starting_price.message}}</span>
+                   {{/if}}
+                  </div>
+                </div>
+              </div>
+                               
+                                
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                    <div class="form-group text-center">
+                                    <input type="submit" name="submit" value="Add" class="btn btn-primary m-b-0"  />
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </form>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+         {{>back_footer}}
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+  {{>back_fotterlink}}
+
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+{{#if overview}}
+<section class="about pyss-5" id="overview">
+    <div class="container">
+        <h2 class="text-center mt-3 h1 fw-bold">Overview</h2>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="demo-content w-auto">
+                    <img src="/uploads/overview/{{overview.image}}" class="img-fluid" alt="overview">
+                </div>
+              
+            </div>
+            <div class="col-md-7">
+                <div class="demo-content bg-alt">
+                    <h2 class="text-start heds">{{overview.heading}}</h2>
+                    <p class="text-justify text-wrap text-dark">
+                        {{overview.description}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{/if}}

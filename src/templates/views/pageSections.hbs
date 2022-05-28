@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Admin  - Page Section</title>
+     {{>back_headerlink}}
+    
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+      {{>back_sidebar}}
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+              {{>back_navbar}}
+
+
+
+                  <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    {{!-- <h1 class="h3 mb-2 text-gray-800">Students</h1> --}}
+                    
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 mt-2 font-weight-bold text-primary">Page Sections</h6>
+                         <div class="float-right d-inline">
+                             <a href="/admin/categories">
+<button type="button" class="btn btn-primary btn-sm mb-2"> <i class="far fa-arrow-alt-circle-left"></i> Back</button></a>
+
+
+                        </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                    <th>Sl No.</th>
+                    <th>Heading</th>
+                    <th>Action</th>
+                    </tr>
+                  </thead>
+              
+                  <tbody>
+
+                     <tr>
+                    <td>1</td>
+                    <td>Top Slider</td>
+                    <td>
+
+                    <a href="/admin/topSlider/{{id}}" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    </td>
+                    </tr>
+                    
+
+                    <tr>
+                    <td>2</td>
+                    <td>Overview</td>
+                    <td>
+                    
+
+                    <a href="/admin/pageOverview/{{id}}" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    </td>
+                    </tr>
+
+                    <tr>
+                    <td>3</td>
+                    <td>Amenities</td>
+                    <td>
+                    <a href="/admin/amenities/{{id}}" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    </td>
+                    </tr>  
+
+                    <tr>
+                    <td>4</td>
+                    <td>Floor Plans</td>
+                    <td>
+                    <a href="/admin/florePlans/{{id}}" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    </td>
+                    </tr>
+
+                    <tr>
+                    <td>5</td>
+                    <td>Price List</td>
+                    <td>
+                    <a href="/admin/priceList/{{id}}" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    </td>
+                    </tr>
+
+                    <tr>
+                    <td>6</td>
+                    <td>Photo Gallery</td>
+                    <td>
+                    <a href="/admin/photoGallery/{{id}}" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    </td>
+                    </tr>
+
+                     <tr>
+                    <td>7</td>
+                    <td>Walkthrough</td>
+                    <td>
+                    <a href="/admin/walkthrough/{{id}}" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    </td>
+                    </tr>
+
+                       <tr>
+                    <td>8</td>
+                    <td>Location Map</td>
+                    <td>
+                    <a href="/admin/locationMap/{{id}}" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                   
+                    </td>
+                    </tr>
+
+
+                    <tr>
+                    <td>9</td>
+                    <td>Site Plan</td>
+                    <td>
+                    <a href="/admin/sitePlans/{{id}}" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    </td>
+                    </tr>
+
+                    <tr>
+                    <td>10</td>
+                    <td>Frequently Asked Questions</td>
+                    <td>
+                    <a href="/admin/frequentlyAskedQuestions/{{id}}" class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+         {{>back_footer}}
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+  {{>back_fotterlink}}
+
+</body>
+
+</html>

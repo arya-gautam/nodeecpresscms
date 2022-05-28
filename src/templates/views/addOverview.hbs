@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Admin  - Add Overview</title>
+     {{>back_headerlink}}
+    
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+      {{>back_sidebar}}
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+              {{>back_navbar}}
+
+
+
+                  <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    {{!-- <h1 class="h3 mb-2 text-gray-800">Students</h1> --}}
+                    
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 mt-2 font-weight-bold text-primary"> Overview <i class="fas fa-angle-double-right"></i> Add New</h6>
+                         <div class="float-right d-inline">
+                             <a href="/admin/overview">
+<button type="button" class="btn btn-primary btn-sm mb-2"> <i class="far fa-arrow-alt-circle-left"></i> Back</button></a>
+
+                        </div>
+                        </div>
+
+                        <div class="card-body">
+                       <form action="/admin/overview" method="post" enctype="multipart/form-data">
+                            <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label for="pagename"><b>Select Page Name</b><span class="text-danger">*</span></label>
+                                       
+                                         <select class="form-control" name="page_name" required>
+                                            <option selected="selected" disabled="disabled" value="">[Choose One]</option>
+                                            {{#each categories}}
+                                            <option  value="{{_id}}" {{#ifeq set.page_name _id}} selected="selected" {{/ifeq}}>{{page_name}}</option>
+                                            {{/each}}
+                                            </select>
+                                    
+                                      {{#if error.errors.page_name.message}} <span class="text-danger">{{error.errors.page_name.message}}</span>{{/if}}
+                                       {{#if error.keyPattern.page_name}} <span class="text-danger">This Page Name Already Exits.</span> {{/if}}
+                                    </div>
+                                    <div class="col-sm-6">
+                                         <label for="page_section"><b>Page Section </b><span class="text-danger">*</span></label>
+                                        <input type="text" name="page_section" value="Overview" class="form-control form-control-user"
+                                            placeholder="Enter Page Title" readonly>
+            
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                             <div class="form-group">
+                                                 <label for="page_title"><b>Heading </b><span class="text-danger">*</span></label>
+                                                <input type="text" name="heading" value="{{set.heading}}" class="form-control form-control-user {{#if error.errors.haeading.message}} is-invalid {{/if}}"
+                                                 placeholder="Enter Overview Heading" required>
+                                                    {{#if error.errors.heading.message}}
+                                                    <span class="text-danger">{{error.errors.heading.message}}</span>
+                                                     {{/if}}
+                                            </div>
+                                    </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label><b>Image <span class="text-danger">*</span></b></label>
+                                        <input name="image" type="file"  class="form-control   {{#if error.errors.image.message}} is-invalid {{/if}}" required/>
+                                        {{#if error.errors.image.message}}
+                                        <span class="text-danger">{{error.errors.image.message}}</span>
+                                        {{/if}}
+                                    </div>
+                                </div>
+
+                                </div>
+
+                                  <div class="row">
+
+                                    <div class="col-sm-12">
+                                             <div class="form-group">
+                                                 <label for="page_title"><b>Description  </b><span class="text-danger">*</span></label>
+                                                <textarea type="text" name="description" rows="6" class="form-control form-control-user {{#if error.errors.haeading.message}} is-invalid {{/if}}"
+                                                 placeholder="Enter Overview Description" required>{{set.description}}</textarea>
+                                                    {{#if error.errors.description.message}}
+                                                    <span class="text-danger">{{error.errors.description.message}}</span>
+                                                     {{/if}}
+                                            </div>
+                                    </div>
+                                </div>
+            
+                                
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                    <div class="form-group text-center">
+                                    <input type="submit" name="submit" value="Add" class="btn btn-primary m-b-0"  />
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </form>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+         {{>back_footer}}
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+  {{>back_fotterlink}}
+</body>
+</html>

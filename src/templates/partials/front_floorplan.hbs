@@ -1,0 +1,25 @@
+ {{#if floorplans}}
+<section id="fplan" class="pyss-5"> 
+    <div class="container">
+        <h2 class="text-center mt-3 h1 fw-bold">Floor Plans</h2>
+            <div class="clearfix"></div>
+            <div class="listing-carousel-wrapper lc_hero carousel-wrap fl-wrap">
+                <div class="listing-carousel carousel">
+                    {{#each floorplans}}
+                    <div class="slick-slide-item">
+                        <div class="listing-item">
+                            <article class="geodir-category-listing fl-wrap">
+                                <div class="geodir-category-img fl-wrap  agent_card">
+                                    <a href="/uploads/floorplans/{{image}}" data-lightbox="photos"><img class="img-fluid" src="/uploads/floorplans/{{image}}"></a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="swiper-button-prev lc-wbtn lc-wbtn_prev text-white"><i class="far fa-angle-left"></i></div>
+                <div class="swiper-button-next lc-wbtn lc-wbtn_next text-white"><i class="far fa-angle-right"></i></div>
+            </div>
+    </div>
+</section>
+{{/if}}
