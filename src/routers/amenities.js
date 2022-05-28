@@ -3,7 +3,7 @@ const express = require("express");
 const amenitiesRouter = express.Router();
 /*login auth middeleware */
 const adminauth = require("../middleware/adminauth");
-const adminauth_API = require("../middleware/adminauth")
+//const adminauth_API = require("../middleware/adminauth")
 /*amenities model ini */
 const Amenities = require("../models/amenities");
 /*categories model ini */
@@ -25,7 +25,7 @@ amenitiesRouter.get("/admin/amenities",adminauth,async(req,res)=>{
     }
 });
 /*use for api */
-amenitiesRouter.get("/api/amenities",adminauth_API,async(req,res)=>{
+amenitiesRouter.get("/api/amenities",adminauth,async(req,res)=>{
     try {
         Amenities.find({}).populate('page_name').exec((err,result)=>{
             if(err) throw(err);
