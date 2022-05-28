@@ -80,14 +80,14 @@ app.use(
 
 
 /*load index page */
-app.get("/",async(req,res)=>{
-    try {
-        categories  = await Categories.find();
-        res.status(201).render("index",{categories:categories});
-    } catch (error) {
-        res.status(404).send(error);
-    } 
-});
+// app.get("/",async(req,res)=>{
+//     try {
+//         categories  = await Categories.find();
+//         res.status(201).render("index",{categories:categories});
+//     } catch (error) {
+//         res.status(404).send(error);
+//     } 
+// });
 
 /*load error page */
 app.get("/*",adminauth,(req,res)=>{

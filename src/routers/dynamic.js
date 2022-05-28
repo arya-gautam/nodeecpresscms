@@ -49,32 +49,32 @@ dynamicRouter.get("/:url",async(req,res)=>{
 
 
 
-// dynamicRouter.get("/",async(req,res)=>{
-//     try {
-//         categories  = await Categories.find();
-//         page_url = categories[0].page_url;
-//         header  = await Categories.findOne({page_url:page_url});
-//         topsliderheading  = await Topsliderheadings.findOne({page_name:header._id});
-//         topsliderimages  = await TopsliderImages.find({page_name:header._id});
-//         overview = await Overview.findOne({page_name:header._id});
-//         amenities = await Amenities.find({page_name:header._id});
-//         floorplans = await Floorplan.find({page_name:header._id});
-//         pricelists = await Pricelist.find({page_name:header._id});
-//         photogallery = await Photogallery.find({page_name:header._id});
-//         res.status(201).render("dynamic",{
-//          categories:categories,
-//          header:header,
-//          topsliderheading:topsliderheading,
-//          topsliderimages:topsliderimages,
-//          overview:overview,
-//          amenities:amenities,
-//          floorplans:floorplans,
-//          pricelists:pricelists,
-//          photogallery:photogallery});
-//     } catch (error) {
-//         res.status(404).send(error);
-//     } 
-// });
+dynamicRouter.get("/",async(req,res)=>{
+    try {
+        categories  = await Categories.find();
+        page_url = categories[0].page_url;
+        header  = await Categories.findOne({page_url:page_url});
+        topsliderheading  = await Topsliderheadings.findOne({page_name:header._id});
+        topsliderimages  = await TopsliderImages.find({page_name:header._id});
+        overview = await Overview.findOne({page_name:header._id});
+        amenities = await Amenities.find({page_name:header._id});
+        floorplans = await Floorplan.find({page_name:header._id});
+        pricelists = await Pricelist.find({page_name:header._id});
+        photogallery = await Photogallery.find({page_name:header._id});
+        res.status(201).render("dynamic",{
+         categories:categories,
+         header:header,
+         topsliderheading:topsliderheading,
+         topsliderimages:topsliderimages,
+         overview:overview,
+         amenities:amenities,
+         floorplans:floorplans,
+         pricelists:pricelists,
+         photogallery:photogallery});
+    } catch (error) {
+        res.status(404).send(error);
+    } 
+});
 
 
 module.exports = dynamicRouter;
