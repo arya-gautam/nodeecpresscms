@@ -17,6 +17,8 @@ const Floorplan = require("../models/floorplan");
 const Pricelist = require("../models/pricelist");
 /*Photogallery model ini */
 const Photogallery = require("../models/photogallery");
+
+
 dynamicRouter.get("/:url",async(req,res)=>{
     try {
         page_url = req.params.url;
@@ -39,12 +41,12 @@ dynamicRouter.get("/:url",async(req,res)=>{
          amenities:amenities,
          floorplans:floorplans,
          pricelists:pricelists,
-         photogallery:photogallery,
-        app_url:process.env.APP_URL});
+         photogallery:photogallery});
     } catch (error) {
         res.status(404).send(error);
     } 
 });
+
 
 
 // dynamicRouter.get("/",async(req,res)=>{
