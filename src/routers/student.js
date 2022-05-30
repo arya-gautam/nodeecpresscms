@@ -20,7 +20,7 @@ try {
 } catch (error) {
     res.status(400).send(error)
 }
-});
+});  
 
 studentRouter.get("/admin/students/:id", async (req,res)=>{
 try {
